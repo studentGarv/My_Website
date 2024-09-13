@@ -1,0 +1,32 @@
+.mydiv {
+    border: 5px outset black;
+    background-color: lightpink;
+    text-align: center;
+  }
+.navbar{
+  display: flex;
+  flex-wrap: wrap;
+  background-color: rgb(72, 72, 72);
+  padding: 50px;
+  justify-content: space-between;
+  font-size: 20px;
+}  
+.navbar div:hover{
+  background-color: beige;
+}
+@media and (max-width:700px)
+{
+  .navbar{
+    
+  }
+}
+.flex{
+    width: 1270px;
+    height: 400px;
+    display: flex;
+    flex-wrap:  wrap;
+    justify-items: center;
+    justify-content: space-around;
+    align-items: flex-start;
+    align-content: center;
+} 
