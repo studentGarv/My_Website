@@ -1,32 +1,40 @@
+#body {
+  background-image: radial-gradient(to top, red, yellow, rgb(255, 68, 0));
+}
 .mydiv {
-    border: 5px outset black;
-    background-color: lightpink;
-    text-align: center;
-  }
-.navbar{
+  border: 5px outset black;
+  background-color: lightpink;
+  text-align: center;
+}
+.navbar {
   display: flex;
   flex-wrap: wrap;
   background-color: rgb(72, 72, 72);
   padding: 50px;
   justify-content: space-between;
   font-size: 20px;
-}  
-.navbar div:hover{
-  background-color: beige;
 }
-@media and (max-width:700px)
-{
-  .navbar{
-    
+.navbar a:hover {
+  background-color: rgb(245, 220, 220);
+}
+.navbar a:visited {
+  color: rgb(245, 220, 220);
+}
+.navbar a: {
+  color: rgb(245, 220, 220);
+}
+
+@media and (max-width: 700px) {
+  .navbar {
   }
 }
-.flex{
-    width: 1270px;
-    height: 400px;
-    display: flex;
-    flex-wrap:  wrap;
-    justify-items: center;
-    justify-content: space-around;
-    align-items: flex-start;
-    align-content: center;
-} 
+.flex {
+  width: 1270px;
+  height: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-items: center;
+  justify-content: space-around;
+  align-items: flex-start;
+  align-content: center;
+}
