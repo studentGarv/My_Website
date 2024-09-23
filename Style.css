@@ -1,5 +1,9 @@
-#body {
-  background-image: radial-gradient(to top, red, yellow, rgb(255, 68, 0));
+body{
+  background: rgb(255, 255, 255);
+  background: linear-gradient(0deg, rgb(27, 172, 2) 0%, rgb(253, 173, 0) 100%);
+  cursor: url('cursor.png'),auto;
+  /* background-color: white;
+  background-image: radial-gradient(circle, red, yellow, rgb(255, 68, 0)); */
 }
 .mydiv {
   border: 5px outset black;
@@ -34,7 +38,16 @@
   display: flex;
   flex-wrap: wrap;
   justify-items: center;
+  gap: 20px;
   justify-content: space-around;
   align-items: flex-start;
   align-content: center;
+}
+.flex img:hover{
+  display: block;
+  transform: scale(2) ;
+
+}
+.flex img{
+  transition: 1s;
 }
