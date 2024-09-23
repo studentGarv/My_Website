@@ -1,7 +1,7 @@
-body{
+body {
   background: rgb(255, 255, 255);
   background: linear-gradient(0deg, rgb(27, 172, 2) 0%, rgb(253, 173, 0) 100%);
-  cursor: url('cursor.png'),auto;
+  cursor: url("cursor.png"), auto;
   /* background-color: white;
   background-image: radial-gradient(circle, red, yellow, rgb(255, 68, 0)); */
 }
@@ -24,12 +24,13 @@ body{
 .navbar a:visited {
   color: rgb(245, 220, 220);
 }
-.navbar a: {
+.navbar a {
   color: rgb(245, 220, 220);
 }
-
-@media and (max-width: 700px) {
+@media (max-width: 700px) {
   .navbar {
+    font-size: 15px;
+    padding: 10px;
   }
 }
 .flex {
@@ -43,11 +44,10 @@ body{
   align-items: flex-start;
   align-content: center;
 }
-.flex img:hover{
+.flex img:hover {
   display: block;
-  transform: scale(2) ;
-
+  transform: scale(2);
 }
-.flex img{
+.flex img {
   transition: 1s;
 }
