@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web3 Video Player</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+</head>
+<body>
+    <video id="videoPlayer" url width="600" controls>
+        <source id="videoSource" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <script>
+        // Connect to Ethereum network
+        if (typeof window.ethereum !== 'undefined') {
+            const web3 = new Web3(window.ethereum);
+            window.ethereum.enable();
+        } else {
+            console.log('MetaMask is not installed');
+        }
+
+        // Example function to fetch video URL from IPFS
+        async function fetchVideo() {
+            const videoHash = 'Qm...'; // Replace with your IPFS hash
+            const videoUrl = `https://ipfs.io/ipfs/${videoHash}`;
+            document.getElementById('videoSource').src = videoUrl;
+            document.getElementById('videoPlayer').load();
+        }
+
+        // Call the function to load the video
+        fetchVideo();
+    </script>
+</body>
+</html>
