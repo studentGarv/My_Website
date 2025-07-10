@@ -36,14 +36,14 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('scroll', function() {
         const navbar = document.querySelector('.navbar');
         if (window.scrollY > 50) {
-            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+            navbar.style.background = 'rgba(0, 0, 0, 0.9)';
             navbar.style.backdropFilter = 'blur(15px)';
             navbar.querySelectorAll('a').forEach(link => {
-                link.style.color = '#333';
+                link.style.color = 'white';
             });
-            navbar.querySelector('.nav-brand h2').style.color = '#333';
+            navbar.querySelector('.nav-brand h2').style.color = 'white';
         } else {
-            navbar.style.background = 'rgba(255, 255, 255, 0.1)';
+            navbar.style.background = 'rgba(0, 0, 0, 0.7)';
             navbar.style.backdropFilter = 'blur(10px)';
             navbar.querySelectorAll('a').forEach(link => {
                 link.style.color = 'white';

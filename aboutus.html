@@ -12,7 +12,7 @@
       .contact-page {
         min-height: 100vh;
         padding-top: 100px;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #FF9933 0%, #FFFFFF 40%, #E6F3FF 50%, #FFFFFF 60%, #138808 100%);
       }
       
       .contact-content {
@@ -51,16 +51,21 @@
         padding: 2rem;
         border-radius: 15px;
         text-align: center;
-        transition: transform 0.3s ease;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-decoration: none;
+        color: inherit;
+        display: block;
       }
       
       .contact-card:hover {
         transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        text-decoration: none;
       }
       
       .contact-card i {
         font-size: 2rem;
-        color: #667eea;
+        color: #FF9933;
         margin-bottom: 1rem;
       }
       
@@ -103,26 +108,26 @@
           </p>
           
           <div class="contact-info">
-            <div class="contact-card">
+            <a href="mailto:garvmehra09@gmail.com" class="contact-card">
               <i class="fas fa-envelope"></i>
               <h3>Email</h3>
-              <p>garv.mehra@example.com</p>
-            </div>
-            <div class="contact-card">
+              <p>garvmehra09@gmail.com</p>
+            </a>
+            <a href="tel:+91XXXXXXXXXX" class="contact-card">
               <i class="fas fa-phone"></i>
               <h3>Phone</h3>
               <p>+91 XXX-XXX-XXXX</p>
-            </div>
-            <div class="contact-card">
+            </a>
+            <a href="https://maps.google.com/?q=Hoshiarpur,Punjab,India" target="_blank" rel="noopener noreferrer" class="contact-card">
               <i class="fas fa-map-marker-alt"></i>
               <h3>Location</h3>
               <p>Hoshiarpur, Punjab, India</p>
-            </div>
-            <div class="contact-card">
+            </a>
+            <a href="https://linkedin.com/in/garvmehra" target="_blank" rel="noopener noreferrer" class="contact-card">
               <i class="fab fa-linkedin"></i>
               <h3>LinkedIn</h3>
               <p>linkedin.com/in/garvmehra</p>
-            </div>
+            </a>
           </div>
         </div>
       </div>
