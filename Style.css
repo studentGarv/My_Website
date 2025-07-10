@@ -160,16 +160,18 @@ body {
 }
 
 .btn-secondary {
-  background: transparent;
+  background: #138808;
   color: white;
-  border: 2px solid white;
+  border: 2px solid #138808;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .btn-secondary:hover {
-  background: white;
-  color: #333;
+  background: #0f7006;
+  color: white;
+  border: 2px solid #0f7006;
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 20px rgba(19, 136, 8, 0.4);
 }
 
 /* About Section */
@@ -216,13 +218,13 @@ body {
 }
 
 .language-tag {
-  background: linear-gradient(135deg, #FF9933 0%, #87CEEB 50%, #138808 100%);
-  color: white;
+  background: linear-gradient(135deg, #FF9933 0%, #FFFFFF 50%, #138808 100%);
+  color: #000080;
   padding: 8px 16px;
   border-radius: 20px;
   font-size: 0.9rem;
-  font-weight: 500;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
 }
 
 .about-image {
