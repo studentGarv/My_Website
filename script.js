@@ -3,10 +3,19 @@ document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
     
-    if (hamburger) {
-        hamburger.addEventListener('click', function() {
+    if (hamburger && navLinks) {
+        hamburger.addEventListener('click', function(e) {
+            e.stopPropagation();
             navLinks.classList.toggle('active');
             hamburger.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('active');
+            }
         });
     }
     
@@ -94,45 +103,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Add CSS for mobile navigation
-const style = document.createElement('style');
-style.textContent = `
-    @media (max-width: 768px) {
-        .nav-links {
-            position: fixed;
-            top: 70px;
-            right: -100%;
-            width: 100%;
-            height: calc(100vh - 70px);
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(15px);
-            flex-direction: column;
-            justify-content: flex-start;
-            padding-top: 2rem;
-            transition: right 0.3s ease;
-        }
-        
-        .nav-links.active {
-            right: 0;
-        }
-        
-        .nav-links a {
-            color: #333 !important;
-            padding: 1rem 2rem;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-        
-        .hamburger.active span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .hamburger.active span:nth-child(3) {
-            transform: rotate(-45deg) translate(7px, -6px);
+// Add escape key functionality for mobile menu
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+        const navLinks = document.querySelector('.nav-links');
+        const hamburger = document.querySelector('.hamburger');
+        if (navLinks && hamburger) {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
         }
     }
-`;
-document.head.appendChild(style);
+});
