@@ -51,6 +51,11 @@ body {
   font-size: 1.8rem;
   font-weight: 700;
   color: white;
+  transition: all 0.2s ease;
+}
+
+.nav-brand h2:hover {
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
 }
 
 .nav-links {
