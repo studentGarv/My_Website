@@ -296,6 +296,8 @@ function openPlatformerGame() {
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             max-width: 90%;
             max-height: 90%;
+            display: flex;
+            flex-direction: column;
         }
 
         .game-header {
@@ -404,21 +406,76 @@ function openPlatformerGame() {
         }
         
         @media (max-width: 768px) {
+            #platformer-modal {
+                padding: 0;
+            }
+            
             .game-container {
-                margin: 10px;
-                padding: 15px;
-                max-width: 95%;
-                max-height: 95%;
+                width: 100%;
+                height: 100%;
+                max-width: 100%;
+                max-height: 100%;
+                margin: 0;
+                padding: 10px;
+                border-radius: 0;
+                background: #1a1a1a;
+                color: white;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+            
+            .game-header {
+                flex-shrink: 0;
+                padding: 10px 0;
             }
             
             .game-header h3 {
                 font-size: 1.2rem;
+                color: #FFD700;
+                text-align: center;
+                margin: 0;
+            }
+            
+            .close-game {
+                position: absolute;
+                top: 15px;
+                right: 15px;
+                z-index: 10001;
+                background: #ff4444;
+                border: 2px solid white;
             }
             
             #gameCanvas {
+                flex: 1;
                 width: 100%;
-                max-width: 400px;
-                height: 200px;
+                height: 100%;
+                max-width: 100%;
+                border: 2px solid #FFD700;
+                border-radius: 8px;
+                background: linear-gradient(to bottom, #001122 0%, #004400 100%);
+            }
+            
+            .mobile-controls {
+                flex-shrink: 0;
+                padding: 15px 20px;
+                background: rgba(0, 0, 0, 0.8);
+                border-radius: 8px 8px 0 0;
+                margin-top: 10px;
+            }
+            
+            .game-controls {
+                flex-shrink: 0;
+                padding: 10px;
+                text-align: center;
+                color: #ccc;
+                background: rgba(0, 0, 0, 0.5);
+                border-radius: 0 0 8px 8px;
+            }
+            
+            .game-controls p {
+                margin: 2px 0;
+                font-size: 0.8rem;
             }
             
             .desktop-only {
@@ -427,18 +484,25 @@ function openPlatformerGame() {
             
             .mobile-only {
                 display: block;
+                color: #FFD700;
+                font-weight: 600;
             }
             
             .control-btn {
-                padding: 12px 16px;
-                font-size: 16px;
-                min-width: 50px;
-                min-height: 50px;
+                padding: 15px 20px;
+                font-size: 18px;
+                min-width: 70px;
+                min-height: 70px;
+                background: linear-gradient(135deg, #138808 0%, #0f6b06 100%);
+                border: 2px solid #FFD700;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
             }
             
             .jump-btn {
-                padding: 12px 20px;
-                min-width: 70px;
+                background: linear-gradient(135deg, #FF9933 0%, #e6851f 100%);
+                border: 2px solid #FFD700;
+                min-width: 100px;
+                font-weight: bold;
             }
         }
         
@@ -494,6 +558,7 @@ function openPlatformerGame() {
     // Close game functionality
     const closeBtn = gameModal.querySelector('.close-game');
     closeBtn.addEventListener('click', () => {
+        document.body.style.overflow = ''; // Restore scrolling
         document.body.removeChild(gameModal);
         document.head.removeChild(gameStyles);
     });
@@ -501,12 +566,25 @@ function openPlatformerGame() {
     // Close on escape key
     const escapeHandler = (e) => {
         if (e.key === 'Escape') {
+            document.body.style.overflow = ''; // Restore scrolling
             document.body.removeChild(gameModal);
             document.head.removeChild(gameStyles);
             document.removeEventListener('keydown', escapeHandler);
         }
     };
     document.addEventListener('keydown', escapeHandler);
+    
+    // Handle orientation changes on mobile
+    window.addEventListener('orientationchange', () => {
+        setTimeout(() => {
+            resizeCanvas();
+        }, 100);
+    });
+    
+    // Prevent page scrolling on mobile when playing
+    if (window.innerWidth <= 768) {
+        document.body.style.overflow = 'hidden';
+    }
 }
 
 function initPlatformerGame() {
@@ -714,17 +792,33 @@ function initPlatformerGame() {
     // Start game loop
     gameLoop();        // Show celebratory message
         setTimeout(() => {
-            ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
-            ctx.fillRect(canvas.width/2 - 150 * game.scale.x, canvas.height/2 - 40 * game.scale.y, 300 * game.scale.x, 80 * game.scale.y);
-            ctx.fillStyle = '#138808';
+            const isMobile = window.innerWidth <= 768;
+            const messageWidth = isMobile ? canvas.width - 20 : 300 * game.scale.x;
+            const messageHeight = isMobile ? 120 * game.scale.y : 80 * game.scale.y;
+            const messageX = canvas.width/2 - messageWidth/2;
+            const messageY = canvas.height/2 - messageHeight/2;
+            
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
+            ctx.fillRect(messageX, messageY, messageWidth, messageHeight);
+            ctx.strokeStyle = '#FFD700';
+            ctx.lineWidth = 3;
+            ctx.strokeRect(messageX, messageY, messageWidth, messageHeight);
+            
+            ctx.fillStyle = '#FFD700';
             ctx.font = `bold ${Math.max(16, 20 * Math.min(game.scale.x, game.scale.y))}px Poppins, Arial`;
             ctx.textAlign = 'center';
-            ctx.fillText('🎉 Easter Egg Found! 🎉', canvas.width/2, canvas.height/2 - 10 * game.scale.y);
+            ctx.fillText('🎉 Easter Egg Found! 🎉', canvas.width/2, canvas.height/2 - 20 * game.scale.y);
+            
+            ctx.fillStyle = '#FFFFFF';
             ctx.font = `${Math.max(14, 16 * Math.min(game.scale.x, game.scale.y))}px Poppins, Arial`;
-            ctx.fillText('Enjoy the secret game!', canvas.width/2, canvas.height/2 + 15 * game.scale.y);
-            if (window.innerWidth <= 768) {
+            ctx.fillText('Enjoy the secret game!', canvas.width/2, canvas.height/2);
+            
+            if (isMobile) {
                 ctx.font = `${Math.max(12, 14 * Math.min(game.scale.x, game.scale.y))}px Poppins, Arial`;
-                ctx.fillText('Tap canvas to jump!', canvas.width/2, canvas.height/2 + 35 * game.scale.y);
+                ctx.fillStyle = '#FFD700';
+                ctx.fillText('Full Screen Mode Activated!', canvas.width/2, canvas.height/2 + 20 * game.scale.y);
+                ctx.fillStyle = '#FFFFFF';
+                ctx.fillText('Tap canvas or use buttons to play!', canvas.width/2, canvas.height/2 + 40 * game.scale.y);
             }
             ctx.textAlign = 'left';
         }, 500);
@@ -746,17 +840,27 @@ function initPlatformerGame() {
     // Make canvas responsive
     function resizeCanvas() {
         const container = canvas.parentElement;
-        const containerWidth = container.clientWidth - 40; // Account for padding
-        const maxWidth = window.innerWidth <= 768 ? 400 : 800;
-        const maxHeight = window.innerWidth <= 768 ? 200 : 400;
+        const isMobile = window.innerWidth <= 768;
         
-        canvas.width = Math.min(containerWidth, maxWidth);
-        canvas.height = maxHeight * (canvas.width / maxWidth);
-        
-        // Scale game elements proportionally
-        const scaleX = canvas.width / 800;
-        const scaleY = canvas.height / 400;
-        game.scale = { x: scaleX, y: scaleY };
+        if (isMobile) {
+            // Full screen on mobile
+            const availableHeight = window.innerHeight - 200; // Account for controls and header
+            const availableWidth = window.innerWidth - 20; // Account for padding
+            
+            canvas.width = availableWidth;
+            canvas.height = Math.max(300, availableHeight);
+            
+            // Scale game elements proportionally but maintain playability
+            const scaleX = canvas.width / 800;
+            const scaleY = canvas.height / 400;
+            game.scale = { x: scaleX, y: scaleY };
+        } else {
+            // Desktop size
+            const containerWidth = container.clientWidth - 40;
+            canvas.width = Math.min(containerWidth, 800);
+            canvas.height = 400;
+            game.scale = { x: canvas.width / 800, y: canvas.height / 400 };
+        }
     }
     
     // Initial resize and add event listener
@@ -765,6 +869,47 @@ function initPlatformerGame() {
     
     // Update game to use scaling
 }
+
+// Prevent mobile browser interface on mobile
+    if (window.innerWidth <= 768) {
+        // Request full screen on mobile if supported
+        const gameContainer = gameModal.querySelector('.game-container');
+        
+        // Add meta viewport changes for full screen experience
+        const metaViewport = document.querySelector('meta[name="viewport"]');
+        const originalViewport = metaViewport.content;
+        metaViewport.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover';
+        
+        // Restore viewport on close
+        const restoreViewport = () => {
+            metaViewport.content = originalViewport;
+        };
+        
+        closeBtn.addEventListener('click', restoreViewport);
+        
+        // Also restore on escape
+        const originalEscapeHandler = escapeHandler;
+        escapeHandler = (e) => {
+            if (e.key === 'Escape') {
+                restoreViewport();
+                originalEscapeHandler(e);
+            }
+        };
+        
+        // Prevent context menu on game elements
+        gameModal.addEventListener('contextmenu', (e) => e.preventDefault());
+        
+        // Prevent pull-to-refresh
+        gameModal.addEventListener('touchstart', (e) => {
+            if (e.touches.length > 1) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+        
+        gameModal.addEventListener('touchmove', (e) => {
+            e.preventDefault();
+        }, { passive: false });
+    }
 
 // Simple sound effects using Web Audio API
 function playClickSound() {
