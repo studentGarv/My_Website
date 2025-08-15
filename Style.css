@@ -26,10 +26,28 @@ body {
 /* Header and Navigation */
 .hero {
   background: linear-gradient(135deg, #FF9933 0%, #FFFFFF 40%, #E6F3FF 50%, #FFFFFF 60%, #138808 100%);
+  position: relative;
   color: white;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.15);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 2;
 }
 
 .navbar {
@@ -49,6 +67,7 @@ body {
 
 .nav-brand h2 {
   font-size: 1.8rem;
+  font-family: 'Syne', sans-serif;
   font-weight: 700;
   color: white;
   transition: all 0.2s ease;
