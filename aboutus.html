@@ -1,253 +1,452 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Garv Mehra</title>
     <meta name="description" content="Contact Garv Mehra - Web Developer Portfolio">
-    <link rel="stylesheet" type="text/css" href="Style.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
-    <title>Contact - Garv Mehra</title>
+    
     <style>
-      .contact-page {
-        min-height: 100vh;
-        padding-top: 100px;
-        background: linear-gradient(135deg, #138808 0%, #FFFFFF 40%, #E8F5E8 50%, #FFFFFF 60%, #0D5F05 100%);
-      }
-      
-      .contact-content {
-        background: white;
-        padding: 3rem;
-        border-radius: 20px;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        max-width: 800px;
-        margin: 2rem auto;
-      }
-      
-      .contact-content h1 {
-        color: #333;
-        text-align: center;
-        margin-bottom: 2rem;
-        font-size: 2.5rem;
-      }
-      
-      .contact-content p {
-        font-size: 1.2rem;
-        line-height: 1.8;
-        color: #666;
-        text-align: center;
-        margin-bottom: 2rem;
-      }
-      
-      .contact-info {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-        margin-top: 2rem;
-      }
-      
-      .contact-card {
-        background: #f8f9fa;
-        padding: 2rem;
-        border-radius: 15px;
-        text-align: center;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        text-decoration: none;
-        color: inherit;
-        display: block;
-      }
-      
-      .contact-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        text-decoration: none;
-      }
-      
-      .contact-card i {
-        font-size: 2rem;
-        color: #138808;
-        margin-bottom: 1rem;
-      }
-      
-      .contact-card h3 {
-        color: #333;
-        margin-bottom: 1rem;
-      }
-      
-      .contact-card p {
-        color: #666;
-        margin: 0;
-      }
-      
-      .contact-card .LI-profile-badge {
-        margin: 0 auto;
-        display: flex;
-        justify-content: center;
-      }
-      
-      .reveal-btn {
-        background: #138808;
-        color: white;
-        border: none;
-        padding: 10px 20px;
-        border-radius: 25px;
-        cursor: pointer;
-        font-size: 0.9rem;
-        font-weight: 500;
-        transition: all 0.3s ease;
-        margin-top: 1rem;
-      }
-      
-      .reveal-btn:hover {
-        background: #0f6b06;
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(19, 136, 8, 0.3);
-      }
-      
-      .reveal-btn:disabled {
-        background: #ccc;
-        cursor: not-allowed;
-        transform: none;
-        box-shadow: none;
-      }
-      
-      #phone-display.revealed {
-        font-weight: 600;
-        color: #138808;
-      }
-    </style>
-  </head>
-  <body>
-    <nav class="navbar">
-      <div class="nav-brand">
-        <h2 title="Click me... there might be a surprise! 🎮">Garv Mehra</h2>
-      </div>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="index.html#about">About</a>
-        <a href="index.html#skills">Skills</a>
-        <a href="aboutus.html">Contact</a>
-      </div>
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </nav>
+        /* CSS Variables */
+        :root {
+            --bg-color: #f8fafc;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --bg-card: #ffffff;
+            --border-color: #e2e8f0;
+            --nav-bg: #f8fafc;
+            --nav-border: #e2e8f0;
+            --accent: #0d9488;
+            --accent-hover: #0f766e;
+            --accent-transparent: rgba(13, 148, 136, 0.1);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-hover: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
 
-    <div class="contact-page">
-      <div class="container">
-        <div class="contact-content">
-          <h1>Get In Touch</h1>
-          <p>
-            I'm always excited to work on new projects and collaborate with fellow developers. 
-            Whether you have a project in mind or just want to say hello, feel free to reach out!
-          </p>
-          
-          <div class="contact-info">
-            <a href="mailto:garvmehra09@gmail.com" class="contact-card">
-              <i class="fas fa-envelope"></i>
-              <h3>Email</h3>
-              <p>garvmehra09@gmail.com</p>
-            </a>
-            <div class="contact-card" id="phone-card">
-              <i class="fas fa-phone"></i>
-              <h3>Phone</h3>
-              <p id="phone-display">Click to reveal phone number</p>
-              <button id="reveal-phone" class="reveal-btn">I'm not a robot - Show Phone</button>
+        [data-theme="dark"] {
+            --bg-color: #0b1120;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --bg-card: #1e293b;
+            --border-color: #334155;
+            --nav-bg: #0b1120;
+            --nav-border: #1e293b;
+            --accent: #14b8a6;
+            --accent-hover: #2dd4bf;
+            --accent-transparent: rgba(20, 184, 166, 0.1);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.5);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.5);
+            --shadow-hover: 0 10px 15px -3px rgba(0,0,0,0.7);
+        }
+
+        /* Reset & Base */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        h1, h2, h3, h4 { line-height: 1.2; color: var(--text-primary); }
+        p { color: var(--text-secondary); margin-bottom: 1rem; }
+
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+        
+        .page-header {
+            padding-top: 120px;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+        .page-header h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; }
+        .page-header p { font-size: 1.125rem; max-width: 600px; margin: 0 auto; }
+
+        /* Navbar */
+        .navbar {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background-color: var(--nav-bg);
+            border-bottom: 1px solid var(--nav-border);
+            z-index: 1000;
+            transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+            padding: 1rem 0;
+        }
+        .navbar.scrolled { box-shadow: var(--shadow-sm); }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+        .logo { font-size: 1.25rem; font-weight: 700; color: var(--text-primary); letter-spacing: -0.5px; }
+        .logo span { color: var(--accent); }
+        .nav-links { display: flex; align-items: center; gap: 2rem; }
+        .nav-links a { font-size: 0.95rem; font-weight: 500; color: var(--text-secondary); transition: color 0.2s ease; position: relative; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+        .nav-links a.active::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 100%; height: 2px; background-color: var(--accent); border-radius: 2px; }
+        .theme-toggle { background: none; border: none; color: var(--text-secondary); cursor: pointer; font-size: 1.2rem; transition: color 0.2s ease; display: flex; align-items: center; justify-content: center; }
+        .theme-toggle:hover { color: var(--accent); }
+        .hamburger { display: none; background: none; border: none; color: var(--text-primary); font-size: 1.5rem; cursor: pointer; }
+
+        /* Mobile Menu Container */
+        .mobile-menu {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100vh;
+            background-color: var(--nav-bg); z-index: 999;
+            display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 2rem;
+            transform: translateX(100%); transition: transform 0.3s ease-in-out;
+        }
+        .mobile-menu.active { transform: translateX(0); }
+        .mobile-menu a { font-size: 1.5rem; font-weight: 600; }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hamburger { display: block; }
+        }
+
+        /* Contact Styles */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .contact-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2.5rem 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--accent);
+        }
+        
+        .contact-card i {
+            font-size: 2.5rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card p {
+            margin-bottom: 0;
+            color: var(--text-secondary);
+        }
+        
+        /* The LinkedIn Badge specific overrides */
+        .LI-profile-badge {
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            text-align: center;
+        }
+        .btn-primary {
+            background-color: var(--accent);
+            color: #ffffff !important;
+            border: 1px solid var(--accent);
+            margin-top: 1.5rem;
+        }
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            border-color: var(--accent-hover);
+        }
+        .btn-primary:disabled {
+            background-color: var(--border-color);
+            border-color: var(--border-color);
+            color: var(--text-secondary) !important;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        #phone-display.revealed {
+            font-weight: 600;
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+
+        footer {
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+        }
+        
+        /* Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Garv<span>.</span></a>
+            <div class="nav-links">
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#skills" class="nav-link">Skills</a>
+                <a href="index.html#projects" class="nav-link">Projects</a>
+                <a href="index.html#certifications" class="nav-link">Certifications</a>
+                <a href="aboutus.html" class="nav-link active">Contact</a>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
             </div>
-            <a href="https://maps.google.com/?q=Hoshiarpur,Punjab,India" target="_blank" rel="noopener noreferrer" class="contact-card">
-              <i class="fas fa-map-marker-alt"></i>
-              <h3>Location</h3>
-              <p>Hoshiarpur, Punjab, India</p>
-            </a>
-              <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="light" data-type="VERTICAL" data-vanity="garv-mehra-31a933292" data-version="v1"></div>
-          </div>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+                <button class="theme-toggle" id="mobile-theme-toggle" aria-label="Toggle theme" style="display: none;">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
         </div>
-      </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html#about" class="mobile-link">About</a>
+        <a href="index.html#skills" class="mobile-link">Skills</a>
+        <a href="index.html#projects" class="mobile-link">Projects</a>
+        <a href="index.html#certifications" class="mobile-link">Certifications</a>
+        <a href="aboutus.html" class="mobile-link">Contact</a>
     </div>
 
-    <script src="script.js"></script>
-    
+    <main>
+        <div class="container page-header fade-up">
+            <h1>Get In Touch</h1>
+            <p>I'm always excited to work on new projects and collaborate with fellow developers. Whether you have a project in mind or just want to say hello, feel free to reach out!</p>
+        </div>
+
+        <section id="contact-details" style="padding-top: 0;">
+            <div class="container fade-up">
+                <div class="contact-grid">
+                    
+                    <!-- Email Card -->
+                    <a href="mailto:garvmehra09@gmail.com" class="contact-card">
+                        <i class="fas fa-envelope"></i>
+                        <h3>Email</h3>
+                        <p>garvmehra09@gmail.com</p>
+                    </a>
+                    
+                    <!-- Phone Card -->
+                    <div class="contact-card" id="phone-card">
+                        <i class="fas fa-phone"></i>
+                        <h3>Phone</h3>
+                        <p id="phone-display">Click to reveal phone number</p>
+                        <button id="reveal-phone" class="btn btn-primary" style="padding: 0.5rem 1rem;">I'm not a robot - Show Phone</button>
+                    </div>
+                    
+                    <!-- Location Card -->
+                    <a href="https://maps.google.com/?q=Hoshiarpur,Punjab,India" target="_blank" rel="noopener noreferrer" class="contact-card">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <h3>Location</h3>
+                        <p>Hoshiarpur, Punjab, India</p>
+                    </a>
+                    
+                    <!-- LinkedIn Card -->
+                    <div class="contact-card" style="padding: 1.5rem 1rem;">
+                        <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="light" data-type="VERTICAL" data-vanity="garv-mehra-31a933292" data-version="v1"></div>
+                    </div>
+                    
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Garv Mehra. Built with modern web technologies.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript functionality -->
     <script>
-      // Phone number reveal functionality
-      document.addEventListener('DOMContentLoaded', function() {
-        const revealBtn = document.getElementById('reveal-phone');
-        const phoneDisplay = document.getElementById('phone-display');
-        const phoneCard = document.getElementById('phone-card');
-        
-        if (revealBtn && phoneDisplay) {
-          revealBtn.addEventListener('click', function() {
-            // Simple "not a robot" verification
-            const confirmation = confirm('Are you a human visitor looking to contact Garv for legitimate business purposes?');
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme Toggle
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const mobileThemeToggleBtn = document.getElementById('mobile-theme-toggle');
+            const htmlElement = document.documentElement;
             
-            if (confirmation) {
-              // Reveal the phone number
-              phoneDisplay.textContent = '+91 XXX-XXX-XXXX'; // Replace with actual number
-              phoneDisplay.classList.add('revealed');
-              revealBtn.textContent = 'Verified ✓';
-              revealBtn.disabled = true;
-              
-              // Make the card clickable to call
-              phoneCard.style.cursor = 'pointer';
-              phoneCard.addEventListener('click', function() {
-                window.location.href = 'tel:+91XXXXXXXXXX'; // Replace with actual number
-              });
-              
-              // Add call icon indicator
-              const callIcon = document.createElement('small');
-              callIcon.innerHTML = '<br><i class="fas fa-phone-alt"></i> Click to call';
-              callIcon.style.color = '#138808';
-              callIcon.style.fontSize = '0.8rem';
-              phoneDisplay.appendChild(callIcon);
-              
+            // Check for saved theme preference or system preference
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            if (savedTheme) {
+                htmlElement.setAttribute('data-theme', savedTheme);
+                updateThemeIcon(savedTheme);
+            } else if (systemPrefersDark) {
+                htmlElement.setAttribute('data-theme', 'dark');
+                updateThemeIcon('dark');
             } else {
-              alert('Phone number access denied. Please use email for contact.');
+                htmlElement.setAttribute('data-theme', 'light');
+                updateThemeIcon('light');
             }
-          });
-        }
-      });
-    </script>
-    
-    <script>
-      // LinkedIn Badge Fallback System
-      document.addEventListener('DOMContentLoaded', function() {
-        // Wait for LinkedIn script to load and render
-        setTimeout(function() {
-          const badgeContainer = document.querySelector('.LI-profile-badge');
-          const iframe = badgeContainer ? badgeContainer.querySelector('iframe') : null;
-          
-          // If no iframe was created, LinkedIn badge failed to load
-          if (!iframe && badgeContainer) {
-            console.log('LinkedIn badge failed to load, using fallback styling');
             
-            // Replace the entire LinkedIn contact card with styled version
-            const linkedinCard = badgeContainer.closest('.contact-card');
-            if (linkedinCard) {
-              linkedinCard.innerHTML = `
-                <a href="https://in.linkedin.com/in/garv-mehra-31a933292" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; display: block; width: 100%; height: 100%;">
-                  <i class="fab fa-linkedin" style="font-size: 2rem; color: #138808; margin-bottom: 1rem; display: block;"></i>
-                  <h3 style="color: #333; margin-bottom: 1rem;">LinkedIn</h3>
-                  <p style="color: #666; margin: 0;">Connect with me</p>
-                </a>
-              `;
-              
-              // Make it behave like other contact cards
-              linkedinCard.style.cursor = 'pointer';
-              linkedinCard.addEventListener('click', function(e) {
-                if (!e.target.closest('a')) {
-                  window.open('https://in.linkedin.com/in/garv-mehra-31a933292', '_blank');
+            function updateThemeIcon(theme) {
+                const iconClass = theme === 'dark' ? 'fa-sun' : 'fa-moon';
+                themeToggleBtn.innerHTML = `<i class="fa-solid ${iconClass}"></i>`;
+                if(mobileThemeToggleBtn) {
+                    mobileThemeToggleBtn.innerHTML = `<i class="fa-solid ${iconClass}"></i>`;
                 }
-              });
             }
-          } else if (iframe) {
-            console.log('LinkedIn badge loaded successfully');
-          } else {
-            console.log('LinkedIn badge container not found');
-          }
-        }, 4000); // Wait 4 seconds for LinkedIn to load
-      });
+            
+            function toggleTheme() {
+                const currentTheme = htmlElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                htmlElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeIcon(newTheme);
+            }
+            
+            themeToggleBtn.addEventListener('click', toggleTheme);
+            if(mobileThemeToggleBtn) {
+                mobileThemeToggleBtn.style.display = 'block';
+                mobileThemeToggleBtn.addEventListener('click', toggleTheme);
+            }
+
+            // Sticky Navbar
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) navbar.classList.add('scrolled');
+                else navbar.classList.remove('scrolled');
+            });
+
+            // Mobile Menu
+            const hamburger = document.getElementById('hamburger');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            
+            if(hamburger && mobileMenu) {
+                const mediaQuery = window.matchMedia('(max-width: 768px)');
+                function handleScreenChange(e) {
+                    if (e.matches) {
+                        mobileThemeToggleBtn.style.display = 'flex';
+                        themeToggleBtn.style.display = 'none';
+                    } else {
+                        mobileThemeToggleBtn.style.display = 'none';
+                        themeToggleBtn.style.display = 'flex';
+                        mobileMenu.classList.remove('active');
+                        hamburger.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                    }
+                }
+                mediaQuery.addListener(handleScreenChange);
+                handleScreenChange(mediaQuery);
+
+                hamburger.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('active');
+                    const isActive = mobileMenu.classList.contains('active');
+                    hamburger.innerHTML = isActive ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+                });
+                
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.remove('active');
+                        hamburger.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                    });
+                });
+            }
+
+            // Scroll Animation
+            const fadeElements = document.querySelectorAll('.fade-up');
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { root: null, rootMargin: '0px', threshold: 0.15 });
+            
+            fadeElements.forEach(element => observer.observe(element));
+            
+            // Phone number reveal functionality
+            const revealBtn = document.getElementById('reveal-phone');
+            const phoneDisplay = document.getElementById('phone-display');
+            const phoneCard = document.getElementById('phone-card');
+            
+            if (revealBtn && phoneDisplay) {
+                revealBtn.addEventListener('click', function() {
+                    const confirmation = confirm('Are you a human visitor looking to contact Garv for legitimate business purposes?');
+                    
+                    if (confirmation) {
+                        phoneDisplay.textContent = '+91 98157 15455'; 
+                        phoneDisplay.classList.add('revealed');
+                        revealBtn.textContent = 'Verified ✓';
+                        revealBtn.disabled = true;
+                        
+                        phoneCard.style.cursor = 'pointer';
+                        phoneCard.addEventListener('click', function(e) {
+                            if(e.target !== revealBtn) {
+                                window.location.href = 'tel:+919815715455';
+                            }
+                        });
+                        
+                        const callIcon = document.createElement('div');
+                        callIcon.innerHTML = '<br><i class="fas fa-phone-alt"></i> Click to call';
+                        callIcon.style.color = 'var(--accent)';
+                        callIcon.style.fontSize = '0.85rem';
+                        phoneDisplay.appendChild(callIcon);
+                    } else {
+                        alert('Phone number access denied. Please use email for contact.');
+                    }
+                });
+            }
+            
+            // LinkedIn Badge Fallback System
+            setTimeout(function() {
+                const badgeContainer = document.querySelector('.LI-profile-badge');
+                const iframe = badgeContainer ? badgeContainer.querySelector('iframe') : null;
+                
+                if (!iframe && badgeContainer) {
+                    console.log('LinkedIn badge failed to load, using fallback styling');
+                    const linkedinCard = badgeContainer.closest('.contact-card');
+                    if (linkedinCard) {
+                        linkedinCard.innerHTML = `
+                            <a href="https://in.linkedin.com/in/garv-mehra-31a933292" target="_blank" rel="noopener noreferrer" style="display: flex; flex-direction: column; align-items: center; width: 100%; height: 100%;">
+                                <i class="fab fa-linkedin" style="font-size: 2.5rem; color: var(--accent); margin-bottom: 1.5rem;"></i>
+                                <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem; color: var(--text-primary);">LinkedIn</h3>
+                                <p style="color: var(--text-secondary); margin: 0;">Connect with me</p>
+                            </a>
+                        `;
+                    }
+                }
+            }, 4000);
+        });
     </script>
-  </body>
+</body>
 </html>

@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Projects | Garv Mehra</title>
+    <meta name="description" content="All projects and repositories by Garv Mehra">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* CSS Variables */
+        :root {
+            /* Light Theme (Default fallback but we default to dark via data-theme) */
+            --bg-color: #f8fafc;
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --bg-card: #ffffff;
+            --border-color: #e2e8f0;
+            --nav-bg: #f8fafc;
+            --nav-border: #e2e8f0;
+            --accent: #0d9488; /* Teal 600 */
+            --accent-hover: #0f766e;
+            --accent-transparent: rgba(13, 148, 136, 0.1);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-hover: 0 10px 15px -3px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0b1120;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --bg-card: #1e293b;
+            --border-color: #334155;
+            --nav-bg: #0b1120;
+            --nav-border: #1e293b;
+            --accent: #14b8a6; /* Teal 500 */
+            --accent-hover: #2dd4bf;
+            --accent-transparent: rgba(20, 184, 166, 0.1);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.5);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.5);
+            --shadow-hover: 0 10px 15px -3px rgba(0,0,0,0.7);
+        }
+
+        /* Reset & Base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4 {
+            line-height: 1.2;
+            color: var(--text-primary);
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -0.5rem;
+            width: 40px;
+            height: 4px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .page-header {
+            padding-top: 120px;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 3rem;
+        }
+
+        .page-header h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--nav-bg);
+            border-bottom: 1px solid var(--nav-border);
+            z-index: 1000;
+            transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+            padding: 1rem 0;
+        }
+
+        .navbar.scrolled {
+            box-shadow: var(--shadow-sm);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: color 0.2s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--accent);
+            border-radius: 2px;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: color 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover {
+            color: var(--accent);
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #ffffff !important;
+            border: 1px solid var(--accent);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            border-color: var(--accent-hover);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent) !important;
+            border: 1px solid var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--accent-transparent);
+        }
+        
+        .btn-icon {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Cards & Grids */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--accent);
+        }
+
+        .card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .card h3 i {
+            color: var(--accent);
+            font-size: 1.1rem;
+        }
+        
+        .card p {
+            flex-grow: 1;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0 1.5rem;
+        }
+        
+        .badge {
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: 999px;
+            background-color: var(--accent-transparent);
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            padding: 2rem 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+        }
+
+        footer p {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Mobile Menu Container */
+        .mobile-menu {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background-color: var(--nav-bg);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        
+        .mobile-menu.active {
+            transform: translateX(0);
+        }
+        
+        .mobile-menu a {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none; /* Hidden on mobile, shown in hamburger menu */
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Garv<span>.</span></a>
+            <div class="nav-links">
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="index.html#skills" class="nav-link">Skills</a>
+                <a href="index.html#projects" class="nav-link">Projects</a>
+                <a href="index.html#certifications" class="nav-link">Certifications</a>
+                <a href="aboutus.html" class="nav-link">Contact</a>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+                <button class="theme-toggle" id="mobile-theme-toggle" aria-label="Toggle theme" style="display: none;">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="index.html#about" class="mobile-link">About</a>
+        <a href="index.html#skills" class="mobile-link">Skills</a>
+        <a href="index.html#projects" class="mobile-link">Projects</a>
+        <a href="index.html#certifications" class="mobile-link">Certifications</a>
+        <a href="aboutus.html" class="mobile-link">Contact</a>
+    </div>
+
+    <main>
+        <div class="container page-header fade-up">
+            <a href="index.html" style="color: var(--accent); font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+                <i class="fa-solid fa-arrow-left"></i> Back to Home
+            </a>
+            <h1>All Projects</h1>
+            <p style="font-size: 1.1rem; max-width: 800px;">A comprehensive collection of my repositories, including frontend web apps, Python scripts, games, and academic assignments.</p>
+        </div>
+
+        <section id="all-projects" style="padding-top: 0;">
+            <div class="container fade-up">
+                
+                <div class="grid-3">
+                    
+                    <!-- 1 -->
+                    <div class="card">
+                        <h3><i class="fa-solid fa-map-location-dot"></i> Election-Map_india</h3>
+                        <p>An interactive TypeScript project visualizing election data mapping across India.</p>
+                        <div class="tech-stack">
+                            <span class="badge">TypeScript</span>
+                            <span class="badge">Data Visualization</span>
+                        </div>
+                        <a href="https://github.com/studentGarv/Election-Map_india" target="_blank" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
+                    </div>
+                    
+                    <!-- 2 -->
+                    <div class="card">
+                        <h3><i class="fa-solid fa-hotel"></i> VenueQuest</h3>
+                        <p>A TypeScript project focused on venue discovery and bookings.</p>
+                        <div class="tech-stack">
+                            <span class="badge">TypeScript</span>
+                            <span class="badge">Web App</span>
+                        </div>
+                        <a href="https://github.com/studentGarv/VenueQuest" target="_blank" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
+                    </div>
+
+                    <!-- 3 -->
+                    <div class="card">
+                        <h3><i class="fa-solid fa-gamepad"></i> Hide---Seek</h3>
+                        <p>A web-based game project built with TypeScript.</p>
+                        <div class="tech-stack">
+                            <span class="badge">TypeScript</span>
+                            <span class="badge">Game Dev</span>
+                        </div>
+                        <a href="https://github.com/studentGarv/Hide---Seek" target="_blank" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
+                    </div>
+                    
+                    <!-- 4 -->
+                    <div class="card">
+                        <h3><i class="fa-solid fa-hands-holding-child"></i> hoshiarpur-sakhi</h3>
+                        <p>A community-focused web application built with TypeScript.</p>
+                        <div class="tech-stack">
+                            <span class="badge">TypeScript</span>
+                            <span class="badge">Frontend</span>
+                        </div>
+                        <a href="https://github.com/studentGarv/hoshiarpur-sakhi" target="_blank" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
+                    </div>
+
+                    <!-- 5 -->
+                    <div class="card">
+                        <h3><i class="fa-solid fa-ghost"></i> Kiro_Retro_Game</h3>
+                        <p>A classic retro arcade game built with vanilla JavaScript (MIT License).</p>
+                        <div class="tech-stack">
+                            <span class="badge">JavaScript</span>
+                            <span class="badge">Game Dev</span>
+                        </div>
+                        <a href="https://github.com/studentGarv/Kiro_Retro_Game" target="_blank" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
+                    </div>
+
+                    <!-- 6 -->
+                    <div class="card">
+                        <h3><i class="fa-solid fa-bell"></i> SUB_Manager</h3>
+                        <p>A helpful reminder application for tracking tasks and subscription renewals.</p>
+                        <div class="tech-stack">
+                            <span class="badge">Web App</span>
+                            <span class="badge">Productivity</span>
+                        </div>
+                        <a href="https://github.com/studentGarv/SUB_Manager" target="_blank" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
+                    </div>
+
+                    <!-- 7 -->
+                    <div class="card">
+                        <h3><i class="fa-solid fa-file-powerpoint"></i> PPT-Maker</h3>
+                        <p>A Python project for programmatically generating presentation slides.</p>
+                        <div class="tech-stack">
+                            <span class="badge">Python</span>
+                            <span class="badge">Automation</span>
+                        </div>
+                        <a href="https://github.com/studentGarv/PPT-Maker" target="_blank" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
+                    </div>
+
+                    <!-- 8 -->
+                    <div class="card">
+                        <h3><i class="fa-solid fa-code"></i> FEE-2.0</h3>
+                        <p>A foundational frontend engineering project built with HTML and CSS.</p>
+                        <div class="tech-stack">
+                            <span class="badge">HTML</span>
+                            <span class="badge">CSS</span>
+                        </div>
+                        <a href="https://github.com/studentGarv/FEE-2.0" target="_blank" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
+                    </div>
+
+                    <!-- 9 -->
+                    <div class="card">
+                        <h3><i class="fa-brands fa-python"></i> Python-Tinker</h3>
+                        <p>A collection of Python scripts, experiments, and tinker projects.</p>
+                        <div class="tech-stack">
+                            <span class="badge">Python</span>
+                            <span class="badge">Scripts</span>
+                        </div>
+                        <a href="https://github.com/studentGarv/Python-Tinker" target="_blank" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
+                    </div>
+
+                    <!-- 10 -->
+                    <div class="card">
+                        <h3><i class="fa-brands fa-java"></i> Blog_Master_Pro</h3>
+                        <p>A comprehensive blogging platform backend project built in Java.</p>
+                        <div class="tech-stack">
+                            <span class="badge">Java</span>
+                            <span class="badge">Backend</span>
+                        </div>
+                        <a href="https://github.com/studentGarv/Blog_Master_Pro" target="_blank" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
+                    </div>
+
+                    <!-- 11 -->
+                    <div class="card">
+                        <h3><i class="fa-solid fa-terminal"></i> Code-Radar-Solutions</h3>
+                        <p>A collection of algorithmic solutions in C for the Code Radar platform.</p>
+                        <div class="tech-stack">
+                            <span class="badge">C</span>
+                            <span class="badge">Algorithms</span>
+                            <span class="badge">Data Structures</span>
+                        </div>
+                        <a href="https://github.com/studentGarv/Code-Radar-Solutions" target="_blank" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
+                    </div>
+
+                    <!-- 12 -->
+                    <div class="card">
+                        <h3><i class="fa-solid fa-book-open"></i> expressBookReviews</h3>
+                        <p>A forked JavaScript project for reviewing books, using Express.js.</p>
+                        <div class="tech-stack">
+                            <span class="badge">JavaScript</span>
+                            <span class="badge">Express.js</span>
+                            <span class="badge">Fork</span>
+                        </div>
+                        <a href="https://github.com/studentGarv/expressBookReviews" target="_blank" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
+                    </div>
+
+                    <!-- 13 -->
+                    <div class="card">
+                        <h3><i class="fa-solid fa-wave-square"></i> curvyILT</h3>
+                        <p>A forked Python project for generating and processing curved structures.</p>
+                        <div class="tech-stack">
+                            <span class="badge">Python</span>
+                            <span class="badge">Fork</span>
+                        </div>
+                        <a href="https://github.com/studentGarv/curvyILT" target="_blank" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
+                    </div>
+                    
+                    <!-- 14 -->
+                    <div class="card">
+                        <h3><i class="fa-brands fa-github"></i> skills-introduction-to-github</h3>
+                        <p>A foundational GitHub clone repository for learning version control basics.</p>
+                        <div class="tech-stack">
+                            <span class="badge">Git</span>
+                            <span class="badge">Learning</span>
+                        </div>
+                        <a href="https://github.com/studentGarv/skills-introduction-to-github" target="_blank" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Garv Mehra. Built with modern web technologies.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme Toggle
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const mobileThemeToggleBtn = document.getElementById('mobile-theme-toggle');
+            const htmlElement = document.documentElement;
+            
+            // Check for saved theme preference or system preference
+            const savedTheme = localStorage.getItem('theme');
+            const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            
+            // Initial theme setup
+            if (savedTheme) {
+                htmlElement.setAttribute('data-theme', savedTheme);
+                updateThemeIcon(savedTheme);
+            } else if (systemPrefersDark) {
+                htmlElement.setAttribute('data-theme', 'dark');
+                updateThemeIcon('dark');
+            } else {
+                htmlElement.setAttribute('data-theme', 'light');
+                updateThemeIcon('light');
+            }
+            
+            function updateThemeIcon(theme) {
+                const iconClass = theme === 'dark' ? 'fa-sun' : 'fa-moon';
+                themeToggleBtn.innerHTML = `<i class="fa-solid ${iconClass}"></i>`;
+                if(mobileThemeToggleBtn) {
+                    mobileThemeToggleBtn.innerHTML = `<i class="fa-solid ${iconClass}"></i>`;
+                }
+            }
+            
+            function toggleTheme() {
+                const currentTheme = htmlElement.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                htmlElement.setAttribute('data-theme', newTheme);
+                localStorage.setItem('theme', newTheme);
+                updateThemeIcon(newTheme);
+            }
+            
+            themeToggleBtn.addEventListener('click', toggleTheme);
+            if(mobileThemeToggleBtn) {
+                mobileThemeToggleBtn.style.display = 'block'; // Show on mobile setup
+                mobileThemeToggleBtn.addEventListener('click', toggleTheme);
+            }
+
+            // Sticky Navbar
+            const navbar = document.getElementById('navbar');
+            
+            window.addEventListener('scroll', () => {
+                // Add shadow to navbar on scroll
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Mobile Menu
+            const hamburger = document.getElementById('hamburger');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            
+            // Only setup if mobile elements exist
+            if(hamburger && mobileMenu) {
+                // Ensure mobile theme toggle visibility matches media query
+                const mediaQuery = window.matchMedia('(max-width: 768px)');
+                function handleScreenChange(e) {
+                    if (e.matches) {
+                        mobileThemeToggleBtn.style.display = 'flex';
+                        themeToggleBtn.style.display = 'none';
+                    } else {
+                        mobileThemeToggleBtn.style.display = 'none';
+                        themeToggleBtn.style.display = 'flex';
+                        // close menu if screen gets resized to desktop
+                        mobileMenu.classList.remove('active');
+                        hamburger.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                    }
+                }
+                mediaQuery.addListener(handleScreenChange);
+                handleScreenChange(mediaQuery);
+
+                hamburger.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('active');
+                    const isActive = mobileMenu.classList.contains('active');
+                    hamburger.innerHTML = isActive ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+                });
+                
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.remove('active');
+                        hamburger.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                    });
+                });
+            }
+
+            // Scroll Animation (Intersection Observer)
+            const fadeElements = document.querySelectorAll('.fade-up');
+            
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+            
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // Stop observing once visible
+                    }
+                });
+            }, observerOptions);
+            
+            fadeElements.forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
