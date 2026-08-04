@@ -101,9 +101,75 @@
         .mobile-menu.active { transform: translateX(0); }
         .mobile-menu a { font-size: 1.5rem; font-weight: 600; }
 
+        /* Body scroll lock when mobile menu is open */
+        body.menu-open {
+            overflow: hidden;
+        }
+
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .card:hover {
+                transform: none;
+                box-shadow: var(--shadow-md);
+                border-color: var(--border-color);
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .hamburger { display: block; }
+
+            .page-header h1 {
+                font-size: 2.25rem;
+            }
+
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .btn,
+            .theme-toggle,
+            .hamburger,
+            .back-home-link {
+                touch-action: manipulation;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .page-header {
+                padding-top: 100px;
+                margin-bottom: 2rem;
+            }
+
+            .page-header h1 {
+                font-size: 1.85rem;
+            }
+
+            .page-header p {
+                font-size: 1rem;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .card h3 {
+                font-size: 1.05rem;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .page-header h1 {
+                font-size: 1.6rem;
+            }
+
+            .mobile-menu a {
+                font-size: 1.25rem;
+            }
         }
 
         /* Cards & Grids */
@@ -211,7 +277,7 @@
                 </button>
             </div>
             <div class="nav-actions">
-                <button class="theme-toggle" id="mobile-theme-toggle" aria-label="Toggle theme">
+                <button class="theme-toggle" id="mobile-theme-toggle" aria-label="Toggle theme" style="display: none;">
                     <i class="fa-solid fa-moon"></i>
                 </button>
                 <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -441,6 +507,7 @@
                         themeToggleBtn.style.display = 'flex';
                         mobileMenu.classList.remove('active');
                         hamburger.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                        document.body.classList.remove('menu-open');
                     }
                 }
                 if (mediaQuery.addEventListener) {
@@ -454,12 +521,14 @@
                     mobileMenu.classList.toggle('active');
                     const isActive = mobileMenu.classList.contains('active');
                     hamburger.innerHTML = isActive ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+                    document.body.classList.toggle('menu-open', isActive);
                 });
                 
                 mobileLinks.forEach(link => {
                     link.addEventListener('click', () => {
                         mobileMenu.classList.remove('active');
                         hamburger.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                        document.body.classList.remove('menu-open');
                     });
                 });
             }

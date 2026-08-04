@@ -581,11 +581,33 @@
             font-weight: 600;
         }
 
+        /* Nav actions wrapper */
+        .nav-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        /* Body scroll lock when mobile menu is open */
+        body.menu-open {
+            overflow: hidden;
+        }
+
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .card:hover {
+                transform: none;
+                box-shadow: var(--shadow-md);
+            }
+            .project-card:hover .project-image img {
+                transform: none;
+            }
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
-                /* Hidden on mobile, shown in hamburger menu */
             }
 
             .hamburger {
@@ -607,10 +629,91 @@
 
             .profile-card {
                 max-width: 340px;
+                margin: 0 auto;
             }
 
             section {
-                padding: 4rem 0;
+                padding: 3.5rem 0;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+
+            .grid-2,
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .btn,
+            .theme-toggle,
+            .hamburger,
+            .social-links a {
+                touch-action: manipulation;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero .role {
+                font-size: 1.1rem;
+            }
+
+            .hero p.summary {
+                font-size: 1rem;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+            }
+
+            .hero-cta .btn {
+                width: 100%;
+            }
+
+            section {
+                padding: 2.5rem 0;
+            }
+
+            .card {
+                padding: 1.5rem;
+            }
+
+            .cert-card h3 {
+                font-size: 1rem;
+            }
+
+            .profile-card {
+                max-width: 280px;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            .hero .role {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+
+            .mobile-menu a {
+                font-size: 1.25rem;
             }
         }
     </style>
@@ -632,7 +735,7 @@
                     <i class="fa-solid fa-moon"></i>
                 </button>
             </div>
-            <div style="display: flex; gap: 1rem; align-items: center;">
+            <div class="nav-actions">
                 <button class="theme-toggle" id="mobile-theme-toggle" aria-label="Toggle theme" style="display: none;">
                     <i class="fa-solid fa-moon"></i>
                 </button>
@@ -986,21 +1089,28 @@
                         // close menu if screen gets resized to desktop
                         mobileMenu.classList.remove('active');
                         hamburger.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                        document.body.classList.remove('menu-open');
                     }
                 }
-                mediaQuery.addListener(handleScreenChange);
+                if (mediaQuery.addEventListener) {
+                    mediaQuery.addEventListener('change', handleScreenChange);
+                } else {
+                    mediaQuery.addListener(handleScreenChange);
+                }
                 handleScreenChange(mediaQuery);
 
                 hamburger.addEventListener('click', () => {
                     mobileMenu.classList.toggle('active');
                     const isActive = mobileMenu.classList.contains('active');
                     hamburger.innerHTML = isActive ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+                    document.body.classList.toggle('menu-open', isActive);
                 });
 
                 mobileLinks.forEach(link => {
                     link.addEventListener('click', () => {
                         mobileMenu.classList.remove('active');
                         hamburger.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                        document.body.classList.remove('menu-open');
                     });
                 });
             }

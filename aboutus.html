@@ -103,9 +103,82 @@
         .mobile-menu.active { transform: translateX(0); }
         .mobile-menu a { font-size: 1.5rem; font-weight: 600; }
 
+        /* Nav actions wrapper */
+        .nav-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        /* Body scroll lock when mobile menu is open */
+        body.menu-open {
+            overflow: hidden;
+        }
+
+        /* Touch device optimizations */
+        @media (hover: none) and (pointer: coarse) {
+            .contact-card:hover {
+                transform: none;
+                box-shadow: var(--shadow-md);
+                border-color: var(--border-color);
+            }
+        }
+
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .hamburger { display: block; }
+
+            .page-header h1 {
+                font-size: 2.25rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .btn,
+            .theme-toggle,
+            .hamburger {
+                touch-action: manipulation;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .page-header {
+                padding-top: 100px;
+                margin-bottom: 2rem;
+            }
+
+            .page-header h1 {
+                font-size: 1.85rem;
+            }
+
+            .page-header p {
+                font-size: 1rem;
+            }
+
+            .contact-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .contact-card i {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+            }
+        }
+
+        @media (max-width: 375px) {
+            .page-header h1 {
+                font-size: 1.6rem;
+            }
+
+            .mobile-menu a {
+                font-size: 1.25rem;
+            }
         }
 
         /* Contact Styles */
@@ -225,7 +298,7 @@
                     <i class="fa-solid fa-moon"></i>
                 </button>
             </div>
-            <div style="display: flex; gap: 1rem; align-items: center;">
+            <div class="nav-actions">
                 <button class="theme-toggle" id="mobile-theme-toggle" aria-label="Toggle theme" style="display: none;">
                     <i class="fa-solid fa-moon"></i>
                 </button>
@@ -362,21 +435,28 @@
                         themeToggleBtn.style.display = 'flex';
                         mobileMenu.classList.remove('active');
                         hamburger.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                        document.body.classList.remove('menu-open');
                     }
                 }
-                mediaQuery.addListener(handleScreenChange);
+                if (mediaQuery.addEventListener) {
+                    mediaQuery.addEventListener('change', handleScreenChange);
+                } else {
+                    mediaQuery.addListener(handleScreenChange);
+                }
                 handleScreenChange(mediaQuery);
 
                 hamburger.addEventListener('click', () => {
                     mobileMenu.classList.toggle('active');
                     const isActive = mobileMenu.classList.contains('active');
                     hamburger.innerHTML = isActive ? '<i class="fa-solid fa-xmark"></i>' : '<i class="fa-solid fa-bars"></i>';
+                    document.body.classList.toggle('menu-open', isActive);
                 });
                 
                 mobileLinks.forEach(link => {
                     link.addEventListener('click', () => {
                         mobileMenu.classList.remove('active');
                         hamburger.innerHTML = '<i class="fa-solid fa-bars"></i>';
+                        document.body.classList.remove('menu-open');
                     });
                 });
             }
