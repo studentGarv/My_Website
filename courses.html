@@ -155,6 +155,32 @@
             margin-top: 4rem;
         }
 
+        /* Certificate issuer badge styling */
+        .cert-issuer {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .back-home-link {
+            color: var(--accent);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .section-no-top-padding {
+            padding-top: 0;
+        }
+
         /* Animations */
         .fade-up {
             opacity: 0;
@@ -184,8 +210,8 @@
                     <i class="fa-solid fa-moon"></i>
                 </button>
             </div>
-            <div style="display: flex; gap: 1rem; align-items: center;">
-                <button class="theme-toggle" id="mobile-theme-toggle" aria-label="Toggle theme" style="display: none;">
+            <div class="nav-actions">
+                <button class="theme-toggle" id="mobile-theme-toggle" aria-label="Toggle theme">
                     <i class="fa-solid fa-moon"></i>
                 </button>
                 <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -206,135 +232,135 @@
 
     <main>
         <div class="container page-header fade-up">
-            <a href="index.html" style="color: var(--accent); font-weight: 600; display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem;">
+            <a href="index.html" class="back-home-link">
                 <i class="fa-solid fa-arrow-left"></i> Back to Home
             </a>
             <h1>All Courses & Certifications</h1>
             <p>A comprehensive list of all the technical, strategy, and legal coursework I've completed to build a well-rounded foundation in software development and tech business.</p>
         </div>
 
-        <section id="all-courses" style="padding-top: 0;">
+        <section id="all-courses" class="section-no-top-padding">
             <div class="container fade-up">
                 <div class="grid-3">
                     
                     <div class="card">
                         <h3><i class="fa-brands fa-python"></i> Basics of Python</h3>
                         <p>Beginner Python fundamentals.</p>
-                        <p class="cert-issuer" style="font-size: 0.85rem; color: var(--accent); font-weight: 500;">Infosys Springboard</p>
+                        <p class="cert-issuer">Infosys Springboard</p>
                     </div>
                     
                     <div class="card">
                         <h3><i class="fa-solid fa-gamepad"></i> Python Game Development - Advanced</h3>
                         <p>Building games with Python and advanced concepts.</p>
-                        <p class="cert-issuer" style="font-size: 0.85rem; color: var(--accent); font-weight: 500;">Infosys Springboard</p>
+                        <p class="cert-issuer">Infosys Springboard</p>
                     </div>
                     
                     <div class="card">
                         <h3><i class="fa-solid fa-triangle-exclamation"></i> Disaster Management</h3>
                         <p>Covers disaster risk, climate change, governance, and decision-making.</p>
-                        <p class="cert-issuer" style="font-size: 0.85rem; color: var(--accent); font-weight: 500;">Chitkara University</p>
+                        <p class="cert-issuer">Chitkara University</p>
                     </div>
                     
                     <div class="card">
                         <h3><i class="fa-solid fa-brain"></i> AI Expert Talk: Innovating Intelligence</h3>
                         <p>A participation certificate for an AI talk exploring the mathematical foundations of AI algorithms.</p>
-                        <p class="cert-issuer" style="font-size: 0.85rem; color: var(--accent); font-weight: 500;">Chitkara University</p>
+                        <p class="cert-issuer">Chitkara University</p>
                     </div>
                     
                     <div class="card">
                         <h3><i class="fa-solid fa-robot"></i> Introduction to Modern AI</h3>
                         <p>AI basics, modern AI applications, and core concepts.</p>
-                        <p class="cert-issuer" style="font-size: 0.85rem; color: var(--accent); font-weight: 500;">Cisco Networking Academy</p>
+                        <p class="cert-issuer">Cisco Networking Academy</p>
                     </div>
                     
                     <div class="card">
                         <h3><i class="fa-solid fa-shield-halved"></i> Cybersecurity for Everyone</h3>
                         <p>Cybersecurity basics, privacy, risk, and security awareness.</p>
-                        <p class="cert-issuer" style="font-size: 0.85rem; color: var(--accent); font-weight: 500;">University of Maryland, Coursera</p>
+                        <p class="cert-issuer">University of Maryland, Coursera</p>
                     </div>
                     
                     <div class="card">
                         <h3><i class="fa-solid fa-chess-knight"></i> Protecting Business Innovations via Strategy</h3>
                         <p>Intro to IP protection and business innovation strategy.</p>
-                        <p class="cert-issuer" style="font-size: 0.85rem; color: var(--accent); font-weight: 500;">HKUST, Coursera</p>
+                        <p class="cert-issuer">HKUST, Coursera</p>
                     </div>
                     
                     <div class="card">
                         <h3><i class="fa-brands fa-react"></i> Developing Front-End Apps with React</h3>
                         <p>React, JSX, components, hooks, and frontend app building.</p>
-                        <p class="cert-issuer" style="font-size: 0.85rem; color: var(--accent); font-weight: 500;">IBM, Coursera</p>
+                        <p class="cert-issuer">IBM, Coursera</p>
                     </div>
                     
                     <div class="card">
                         <h3><i class="fa-solid fa-scale-balanced"></i> Intellectual Property Law Specialization</h3>
                         <p>Trademark, patent, copyright, and IP strategy.</p>
-                        <p class="cert-issuer" style="font-size: 0.85rem; color: var(--accent); font-weight: 500;">University of Pennsylvania, Coursera</p>
+                        <p class="cert-issuer">University of Pennsylvania, Coursera</p>
                     </div>
                     
                     <div class="card">
                         <h3><i class="fa-solid fa-bullhorn"></i> Twitter, LinkedIn, YouTube Marketing</h3>
                         <p>Social and digital marketing basics for major platforms.</p>
-                        <p class="cert-issuer" style="font-size: 0.85rem; color: var(--accent); font-weight: 500;">Digital Marketing Institute, Coursera</p>
+                        <p class="cert-issuer">Digital Marketing Institute, Coursera</p>
                     </div>
                     
                     <div class="card">
                         <h3><i class="fa-solid fa-hashtag"></i> Social Media and Social Content Strategy</h3>
                         <p>Planning and creating social content strategy.</p>
-                        <p class="cert-issuer" style="font-size: 0.85rem; color: var(--accent); font-weight: 500;">Digital Marketing Institute, Coursera</p>
+                        <p class="cert-issuer">Digital Marketing Institute, Coursera</p>
                     </div>
                     
                     <div class="card">
                         <h3><i class="fa-solid fa-building-shield"></i> Protecting Business Innovation Specialization</h3>
                         <p>Broader IP protection specialization.</p>
-                        <p class="cert-issuer" style="font-size: 0.85rem; color: var(--accent); font-weight: 500;">HKUST, Coursera</p>
+                        <p class="cert-issuer">HKUST, Coursera</p>
                     </div>
                     
                     <div class="card">
                         <h3><i class="fa-solid fa-copyright"></i> Protecting Business Innovations via Copyright</h3>
                         <p>Copyright basics for business protection.</p>
-                        <p class="cert-issuer" style="font-size: 0.85rem; color: var(--accent); font-weight: 500;">HKUST, Coursera</p>
+                        <p class="cert-issuer">HKUST, Coursera</p>
                     </div>
                     
                     <div class="card">
                         <h3><i class="fa-solid fa-registered"></i> Trademark Law</h3>
                         <p>Trademark law basics and brand protection.</p>
-                        <p class="cert-issuer" style="font-size: 0.85rem; color: var(--accent); font-weight: 500;">University of Pennsylvania, Coursera</p>
+                        <p class="cert-issuer">University of Pennsylvania, Coursera</p>
                     </div>
                     
                     <div class="card">
                         <h3><i class="fa-solid fa-lightbulb"></i> Introduction to Intellectual Property</h3>
                         <p>Intro to IP rights and concepts.</p>
-                        <p class="cert-issuer" style="font-size: 0.85rem; color: var(--accent); font-weight: 500;">University of Pennsylvania, Coursera</p>
+                        <p class="cert-issuer">University of Pennsylvania, Coursera</p>
                     </div>
                     
                     <div class="card">
                         <h3><i class="fa-brands fa-js"></i> JavaScript Programming Essentials</h3>
                         <p>JavaScript fundamentals for web development.</p>
-                        <p class="cert-issuer" style="font-size: 0.85rem; color: var(--accent); font-weight: 500;">IBM, Coursera</p>
+                        <p class="cert-issuer">IBM, Coursera</p>
                     </div>
                     
                     <div class="card">
                         <h3><i class="fa-solid fa-file-signature"></i> Patent Law</h3>
                         <p>Patent law basics and protection of inventions.</p>
-                        <p class="cert-issuer" style="font-size: 0.85rem; color: var(--accent); font-weight: 500;">University of Pennsylvania, Coursera</p>
+                        <p class="cert-issuer">University of Pennsylvania, Coursera</p>
                     </div>
                     
                     <div class="card">
                         <h3><i class="fa-solid fa-earth-americas"></i> Natural Disaster Risk Assessment Specialization</h3>
                         <p>Assessing natural-disaster and climate risk in infrastructure.</p>
-                        <p class="cert-issuer" style="font-size: 0.85rem; color: var(--accent); font-weight: 500;">BID Academia, Coursera</p>
+                        <p class="cert-issuer">BID Academia, Coursera</p>
                     </div>
                     
                     <div class="card">
                         <h3><i class="fa-regular fa-copyright"></i> Copyright Law</h3>
                         <p>Copyright law basics and content protection.</p>
-                        <p class="cert-issuer" style="font-size: 0.85rem; color: var(--accent); font-weight: 500;">University of Pennsylvania, Coursera</p>
+                        <p class="cert-issuer">University of Pennsylvania, Coursera</p>
                     </div>
                     
                     <div class="card">
                         <h3><i class="fa-solid fa-user-shield"></i> Introduction to Cybersecurity</h3>
                         <p>Cybersecurity fundamentals and safe online practices.</p>
-                        <p class="cert-issuer" style="font-size: 0.85rem; color: var(--accent); font-weight: 500;">Cisco Networking Academy</p>
+                        <p class="cert-issuer">Cisco Networking Academy</p>
                     </div>
 
                 </div>
@@ -417,7 +443,11 @@
                         hamburger.innerHTML = '<i class="fa-solid fa-bars"></i>';
                     }
                 }
-                mediaQuery.addListener(handleScreenChange);
+                if (mediaQuery.addEventListener) {
+                    mediaQuery.addEventListener('change', handleScreenChange);
+                } else {
+                    mediaQuery.addListener(handleScreenChange);
+                }
                 handleScreenChange(mediaQuery);
 
                 hamburger.addEventListener('click', () => {
