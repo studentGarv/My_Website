@@ -24,18 +24,6 @@ python -m http.server 8000
 
 Then visit: `http://localhost:8000`
 
-## How to Upload CV/Resume and Make It Downloadable
-1. Create a folder named `assets/docs` in this repository.
-2. Add your file there, for example: `assets/docs/Garv_Mehra_Resume.pdf`.
-3. Add a button/link in `index.html` (or `aboutus.html`) pointing to that PDF.
-4. Use the `download` attribute on the link so users download it directly.
-
-Recommended link target:
-
-`assets/docs/Garv_Mehra_Resume.pdf`
-
-If you deploy on GitHub Pages, pushing this file to the repo is enough for public download.
-
 ## Author
 **Garv Mehra**  
 GitHub: https://github.com/studentGarv  
