@@ -2,11 +2,6 @@
 
 Personal portfolio website for **Garv Mehra** showcasing skills, projects, certifications, coursework, and contact details.
 
-## Repository Description (for GitHub "About")
-Use this as your repo description:
-
-`Personal portfolio website of Garv Mehra — CSE undergraduate, full-stack developer, and AI/LLM enthusiast.`
-
 ## Pages
 - `index.html` — Home page with About, Skills, Featured Projects, and Certifications
 - `projects.html` — Full projects listing
