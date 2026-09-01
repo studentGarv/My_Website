@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact | Garv Mehra</title>
-    <meta name="description" content="Contact Garv Mehra - Web Developer Portfolio">
+    <title>Connect | Garv Mehra</title>
+    <meta name="description" content="Connect with Garv Mehra - Links and Portfolio">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -280,6 +280,80 @@
             transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
         .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+        /* Linktree Styles */
+        .linktree-container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+        .linktree-btn {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            padding: 0.75rem 1rem;
+            background-color: var(--bg-card);
+            border: 2px solid var(--border-color);
+            border-radius: 50px;
+            text-align: center;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            color: var(--text-primary);
+            position: relative;
+        }
+        .linktree-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent);
+        }
+        .linktree-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: var(--nav-bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 1px solid var(--border-color);
+        }
+        .linktree-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .linktree-icon i {
+            font-size: 1.4rem;
+            color: var(--accent);
+        }
+        .linktree-text {
+            flex: 1;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-right: 48px; /* Offset the icon width */
+        }
+        .linktree-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .linktree-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: var(--accent);
+            color: white;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            border: 4px solid var(--border-color);
+        }
     </style>
 </head>
 <body>
@@ -291,9 +365,12 @@
             <div class="nav-links">
                 <a href="index.html#about" class="nav-link">About</a>
                 <a href="index.html#skills" class="nav-link">Skills</a>
+                <a href="index.html#experience" class="nav-link">Experience</a>
                 <a href="index.html#projects" class="nav-link">Projects</a>
                 <a href="index.html#certifications" class="nav-link">Certifications</a>
-                <a href="aboutus.html" class="nav-link active">Contact</a>
+                <a href="index.html#exchange" class="nav-link">Exchange</a>
+                <a href="index.html#insights" class="nav-link">Insights</a>
+                <a href="aboutus.html" class="nav-link active">Connect</a>
                 <button class="theme-toggle" id="theme-toggle" aria-label="Toggle theme">
                     <i class="fa-solid fa-moon"></i>
                 </button>
@@ -313,51 +390,67 @@
     <div class="mobile-menu" id="mobile-menu">
         <a href="index.html#about" class="mobile-link">About</a>
         <a href="index.html#skills" class="mobile-link">Skills</a>
+        <a href="index.html#experience" class="mobile-link">Experience</a>
         <a href="index.html#projects" class="mobile-link">Projects</a>
         <a href="index.html#certifications" class="mobile-link">Certifications</a>
-        <a href="aboutus.html" class="mobile-link">Contact</a>
+        <a href="index.html#exchange" class="mobile-link">Exchange</a>
+        <a href="index.html#insights" class="mobile-link">Insights</a>
+        <a href="aboutus.html" class="mobile-link">Connect</a>
     </div>
 
-    <main>
-        <div class="container page-header fade-up">
-            <h1>Get In Touch</h1>
-            <p>I'm always excited to work on new projects and collaborate with fellow developers. Whether you have a project in mind or just want to say hello, feel free to reach out!</p>
-        </div>
-
-        <section id="contact-details" style="padding-top: 0;">
-            <div class="container fade-up">
-                <div class="contact-grid">
-                    
-                    <!-- Email Card -->
-                    <a href="mailto:garvmehra09@gmail.com" class="contact-card">
-                        <i class="fas fa-envelope"></i>
-                        <h3>Email</h3>
-                        <p>garvmehra09@gmail.com</p>
-                    </a>
-                    
-                    <!-- Phone Card -->
-                    <div class="contact-card" id="phone-card">
-                        <i class="fas fa-phone"></i>
-                        <h3>Phone</h3>
-                        <p id="phone-display">Click to reveal phone number</p>
-                        <button id="reveal-phone" class="btn btn-primary" style="padding: 0.5rem 1rem;">I'm not a robot - Show Phone</button>
-                    </div>
-                    
-                    <!-- Location Card -->
-                    <a href="https://maps.google.com/?q=Hoshiarpur,Punjab,India" target="_blank" rel="noopener noreferrer" class="contact-card">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <h3>Location</h3>
-                        <p>Hoshiarpur, Punjab, India</p>
-                    </a>
-                    
-                    <!-- LinkedIn Card -->
-                    <div class="contact-card" style="padding: 1.5rem 1rem;">
-                        <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="large" data-theme="light" data-type="VERTICAL" data-vanity="garv-mehra-31a933292" data-version="v1"></div>
-                    </div>
-                    
+    <main style="padding-top: 120px; padding-bottom: 4rem; min-height: 80vh;">
+        <div class="linktree-container fade-up">
+            <div class="linktree-header">
+                <div class="linktree-avatar" style="overflow: hidden; padding: 0; display: inline-block;">
+                    <img src="https://ui-avatars.com/api/?name=Garv+Mehra&background=0d9488&color=fff&size=120&font-size=0.4" alt="Garv Mehra" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
                 </div>
+                <h1 style="font-size: 2rem; font-weight: 800; margin-bottom: 0.5rem;">Garv Mehra</h1>
+                <p style="font-size: 1.1rem; color: var(--text-secondary);">CSE Undergraduate | AI/LLM Systems | Content Creator</p>
             </div>
-        </section>
+            
+            <!-- YouTube Links -->
+            <a href="https://www.youtube.com/channel/UCShY7F6ZihTcFI4usXY3G3Q" target="_blank" rel="noopener noreferrer" class="linktree-btn">
+                <div class="linktree-icon"><img src="https://ui-avatars.com/api/?name=Garv+Mehra&background=0d9488&color=fff" alt="Garv Mehra"></div>
+                <div class="linktree-text">Garv Mehra (Main Channel)</div>
+            </a>
+            
+            <a href="https://www.youtube.com/@MPTT_69/videos" target="_blank" rel="noopener noreferrer" class="linktree-btn">
+                <div class="linktree-icon"><img src="https://ui-avatars.com/api/?name=MPTT+69&background=0d9488&color=fff" alt="MPTT 69"></div>
+                <div class="linktree-text">Mr Proud Tech Tips </div>
+            </a>
+            
+            <a href="https://www.youtube.com/@mrproud69/videos" target="_blank" rel="noopener noreferrer" class="linktree-btn">
+                <div class="linktree-icon"><img src="https://ui-avatars.com/api/?name=Mr+Proud+69&background=0d9488&color=fff" alt="Mr Proud 69"></div>
+                <div class="linktree-text">Mr Proud 69</div>
+            </a>
+            
+            <a href="https://www.youtube.com/@mrproudgame/videos" target="_blank" rel="noopener noreferrer" class="linktree-btn">
+                <div class="linktree-icon"><img src="https://ui-avatars.com/api/?name=Mr+Proud+Game&background=0d9488&color=fff" alt="Mr Proud Game"></div>
+                <div class="linktree-text">Mr Proud Game</div>
+            </a>
+            
+            <!-- Other Contact Links -->
+            <a href="mailto:garvmehra09@gmail.com" class="linktree-btn" style="margin-top: 1rem;">
+                <div class="linktree-icon"><i class="fas fa-envelope"></i></div>
+                <div class="linktree-text">Email Me</div>
+            </a>
+            
+            <a href="https://in.linkedin.com/in/garv-mehra-31a933292" target="_blank" rel="noopener noreferrer" class="linktree-btn">
+                <div class="linktree-icon"><i class="fa-brands fa-linkedin" style="color: #0077b5;"></i></div>
+                <div class="linktree-text">LinkedIn Profile</div>
+            </a>
+            
+            <a href="https://maps.google.com/?q=Hoshiarpur,Punjab,India" target="_blank" rel="noopener noreferrer" class="linktree-btn">
+                <div class="linktree-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="linktree-text">Hoshiarpur, Punjab, India</div>
+            </a>
+            
+            <!-- Phone handled via JS -->
+            <div class="linktree-btn" id="linktree-phone" style="cursor: pointer;">
+                <div class="linktree-icon"><i class="fas fa-phone"></i></div>
+                <div class="linktree-text" id="phone-display-text">Click to reveal phone number</div>
+            </div>
+        </div>
     </main>
 
     <footer>
