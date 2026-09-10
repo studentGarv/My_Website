@@ -5,6 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All Projects | Garv Mehra</title>
     <meta name="description" content="All projects and repositories by Garv Mehra">
+    <meta name="author" content="Garv Mehra">
+    <link rel="canonical" href="https://garvmehra.com/projects.html">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://garvmehra.com/projects.html">
+    <meta property="og:title" content="All Projects | Garv Mehra">
+    <meta property="og:description" content="All projects and repositories by Garv Mehra">
+    <meta property="og:image" content="https://garvmehra.com/assets/og-preview.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://garvmehra.com/projects.html">
+    <meta property="twitter:title" content="All Projects | Garv Mehra">
+    <meta property="twitter:description" content="All projects and repositories by Garv Mehra">
+    <meta property="twitter:image" content="https://garvmehra.com/assets/og-preview.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -505,9 +528,22 @@
             <div class="container fade-up">
                 
                 <div class="grid-3">
+                <!-- Filter Buttons -->
+                <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem; justify-content: center;" id="project-filters">
+                    <button class="btn btn-primary filter-btn active" data-filter="all">All</button>
+                    <button class="btn btn-secondary filter-btn" data-filter="TypeScript">TypeScript</button>
+                    <button class="btn btn-secondary filter-btn" data-filter="Python">Python</button>
+                    <button class="btn btn-secondary filter-btn" data-filter="React">React</button>
+                    <button class="btn btn-secondary filter-btn" data-filter="Java">Java</button>
+                    <button class="btn btn-secondary filter-btn" data-filter="JavaScript">JavaScript</button>
+                </div>
+                
+                <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem; color: var(--text-primary);">Original Projects</h2>
+                <div class="grid-3" id="original-projects">
                     
                     <!-- 1 -->
                     <div class="card">
+                    <div class="card project-item" data-tech="TypeScript">
                         <h3><i class="fa-solid fa-map-location-dot"></i> Election-Map_india</h3>
                         <p>An interactive TypeScript project visualizing election data mapping across India.</p>
                         <div class="tech-stack">
@@ -515,10 +551,12 @@
                             <span class="badge">Data Visualization</span>
                         </div>
                         <a href="https://github.com/studentGarv/Election-Map_india" target="_blank" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
+                        <a href="https://github.com/studentGarv/Election-Map_india" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
                     </div>
                     
                     <!-- 2 -->
                     <div class="card">
+                    <div class="card project-item" data-tech="TypeScript">
                         <h3><i class="fa-solid fa-hotel"></i> VenueQuest</h3>
                         <p>A TypeScript project focused on venue discovery and bookings.</p>
                         <div class="tech-stack">
@@ -526,10 +564,12 @@
                             <span class="badge">Web App</span>
                         </div>
                         <a href="https://github.com/studentGarv/VenueQuest" target="_blank" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
+                        <a href="https://github.com/studentGarv/VenueQuest" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
                     </div>
 
                     <!-- 3 -->
                     <div class="card">
+                    <div class="card project-item" data-tech="TypeScript">
                         <h3><i class="fa-solid fa-gamepad"></i> Hide---Seek</h3>
                         <p>A web-based game project built with TypeScript.</p>
                         <div class="tech-stack">
@@ -537,10 +577,12 @@
                             <span class="badge">Game Dev</span>
                         </div>
                         <a href="https://github.com/studentGarv/Hide---Seek" target="_blank" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
+                        <a href="https://github.com/studentGarv/Hide---Seek" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
                     </div>
                     
                     <!-- 4 -->
                     <div class="card">
+                    <div class="card project-item" data-tech="TypeScript">
                         <h3><i class="fa-solid fa-hands-holding-child"></i> hoshiarpur-sakhi</h3>
                         <p>A community-focused web application built with TypeScript.</p>
                         <div class="tech-stack">
@@ -548,10 +590,12 @@
                             <span class="badge">Frontend</span>
                         </div>
                         <a href="https://github.com/studentGarv/hoshiarpur-sakhi" target="_blank" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
+                        <a href="https://github.com/studentGarv/hoshiarpur-sakhi" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
                     </div>
 
                     <!-- 5 -->
                     <div class="card">
+                    <div class="card project-item" data-tech="JavaScript">
                         <h3><i class="fa-solid fa-ghost"></i> Kiro_Retro_Game</h3>
                         <p>A classic retro arcade game built with vanilla JavaScript (MIT License).</p>
                         <div class="tech-stack">
@@ -559,10 +603,12 @@
                             <span class="badge">Game Dev</span>
                         </div>
                         <a href="https://github.com/studentGarv/Kiro_Retro_Game" target="_blank" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
+                        <a href="https://github.com/studentGarv/Kiro_Retro_Game" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
                     </div>
 
                     <!-- 6 -->
                     <div class="card">
+                    <div class="card project-item" data-tech="Web App">
                         <h3><i class="fa-solid fa-bell"></i> SUB_Manager</h3>
                         <p>A helpful reminder application for tracking tasks and subscription renewals.</p>
                         <div class="tech-stack">
@@ -570,10 +616,12 @@
                             <span class="badge">Productivity</span>
                         </div>
                         <a href="https://github.com/studentGarv/SUB_Manager" target="_blank" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
+                        <a href="https://github.com/studentGarv/SUB_Manager" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
                     </div>
 
                     <!-- 7 -->
                     <div class="card">
+                    <div class="card project-item" data-tech="Python">
                         <h3><i class="fa-solid fa-file-powerpoint"></i> PPT-Maker</h3>
                         <p>A Python project for programmatically generating presentation slides.</p>
                         <div class="tech-stack">
@@ -581,10 +629,12 @@
                             <span class="badge">Automation</span>
                         </div>
                         <a href="https://github.com/studentGarv/PPT-Maker" target="_blank" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
+                        <a href="https://github.com/studentGarv/PPT-Maker" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
                     </div>
 
                     <!-- 8 -->
                     <div class="card">
+                    <div class="card project-item" data-tech="HTML">
                         <h3><i class="fa-solid fa-code"></i> FEE-2.0</h3>
                         <p>A foundational frontend engineering project built with HTML and CSS.</p>
                         <div class="tech-stack">
@@ -592,10 +642,12 @@
                             <span class="badge">CSS</span>
                         </div>
                         <a href="https://github.com/studentGarv/FEE-2.0" target="_blank" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
+                        <a href="https://github.com/studentGarv/FEE-2.0" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
                     </div>
 
                     <!-- 9 -->
                     <div class="card">
+                    <div class="card project-item" data-tech="Python">
                         <h3><i class="fa-brands fa-python"></i> Python-Tinker</h3>
                         <p>A collection of Python scripts, experiments, and tinker projects.</p>
                         <div class="tech-stack">
@@ -603,10 +655,12 @@
                             <span class="badge">Scripts</span>
                         </div>
                         <a href="https://github.com/studentGarv/Python-Tinker" target="_blank" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
+                        <a href="https://github.com/studentGarv/Python-Tinker" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
                     </div>
 
                     <!-- 10 -->
                     <div class="card">
+                    <div class="card project-item" data-tech="Java">
                         <h3><i class="fa-brands fa-java"></i> Blog_Master_Pro</h3>
                         <p>A comprehensive blogging platform backend project built in Java.</p>
                         <div class="tech-stack">
@@ -614,10 +668,12 @@
                             <span class="badge">Backend</span>
                         </div>
                         <a href="https://github.com/studentGarv/Blog_Master_Pro" target="_blank" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
+                        <a href="https://github.com/studentGarv/Blog_Master_Pro" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
                     </div>
 
                     <!-- 11 -->
                     <div class="card">
+                    <div class="card project-item" data-tech="C">
                         <h3><i class="fa-solid fa-terminal"></i> Code-Radar-Solutions</h3>
                         <p>A collection of algorithmic solutions in C for the Code Radar platform.</p>
                         <div class="tech-stack">
@@ -626,11 +682,20 @@
                             <span class="badge">Data Structures</span>
                         </div>
                         <a href="https://github.com/studentGarv/Code-Radar-Solutions" target="_blank" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
+                        <a href="https://github.com/studentGarv/Code-Radar-Solutions" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
                     </div>
+                </div>
 
+                <h2 style="font-size: 1.5rem; margin: 3rem 0 1.5rem; color: var(--text-primary);">Forks & Learning</h2>
+                <div class="grid-3" id="forks-projects">
                     <!-- 12 -->
                     <div class="card">
                         <h3><i class="fa-solid fa-book-open"></i> expressBookReviews</h3>
+                    <div class="card project-item" data-tech="JavaScript">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                            <h3><i class="fa-solid fa-book-open"></i> expressBookReviews</h3>
+                            <span class="badge" style="background-color: var(--border-color); color: var(--text-secondary);">Fork</span>
+                        </div>
                         <p>A forked JavaScript project for reviewing books, using Express.js.</p>
                         <div class="tech-stack">
                             <span class="badge">JavaScript</span>
@@ -638,28 +703,41 @@
                             <span class="badge">Fork</span>
                         </div>
                         <a href="https://github.com/studentGarv/expressBookReviews" target="_blank" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
+                        <a href="https://github.com/studentGarv/expressBookReviews" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
                     </div>
 
                     <!-- 13 -->
                     <div class="card">
                         <h3><i class="fa-solid fa-wave-square"></i> curvyILT</h3>
+                    <div class="card project-item" data-tech="Python">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                            <h3><i class="fa-solid fa-wave-square"></i> curvyILT</h3>
+                            <span class="badge" style="background-color: var(--border-color); color: var(--text-secondary);">Fork</span>
+                        </div>
                         <p>A forked Python project for generating and processing curved structures.</p>
                         <div class="tech-stack">
                             <span class="badge">Python</span>
                             <span class="badge">Fork</span>
                         </div>
                         <a href="https://github.com/studentGarv/curvyILT" target="_blank" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
+                        <a href="https://github.com/studentGarv/curvyILT" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
                     </div>
                     
                     <!-- 14 -->
                     <div class="card">
                         <h3><i class="fa-brands fa-github"></i> skills-introduction-to-github</h3>
+                    <div class="card project-item" data-tech="Git">
+                        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+                            <h3><i class="fa-brands fa-github"></i> skills-introduction-to-github</h3>
+                            <span class="badge" style="background-color: var(--border-color); color: var(--text-secondary);">Learning</span>
+                        </div>
                         <p>A foundational GitHub clone repository for learning version control basics.</p>
                         <div class="tech-stack">
                             <span class="badge">Git</span>
                             <span class="badge">Learning</span>
                         </div>
                         <a href="https://github.com/studentGarv/skills-introduction-to-github" target="_blank" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
+                        <a href="https://github.com/studentGarv/skills-introduction-to-github" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-icon" style="padding: 0.5rem 1rem; font-size: 0.85rem; margin-top: auto; align-self: flex-start;"><i class="fa-brands fa-github"></i> Repository</a>
                     </div>
 
                 </div>
@@ -797,6 +875,36 @@
             
             fadeElements.forEach(element => {
                 observer.observe(element);
+            });
+
+            // Project Filtering
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const projectItems = document.querySelectorAll('.project-item');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active', 'btn-primary'));
+                    filterBtns.forEach(b => b.classList.add('btn-secondary'));
+                    
+                    // Add active class to clicked button
+                    btn.classList.remove('btn-secondary');
+                    btn.classList.add('active', 'btn-primary');
+
+                    const filterValue = btn.getAttribute('data-filter');
+
+                    projectItems.forEach(item => {
+                        if (filterValue === 'all') {
+                            item.style.display = 'flex';
+                        } else {
+                            if (item.getAttribute('data-tech') === filterValue) {
+                                item.style.display = 'flex';
+                            } else {
+                                item.style.display = 'none';
+                            }
+                        }
+                    });
+                });
             });
         });
     </script>

@@ -15,15 +15,6 @@ Personal portfolio website for **Garv Mehra** showcasing skills, projects, certi
 - Font Awesome
 - Google Fonts
 
-## Run Locally
-This is a static website. You can open `index.html` directly in your browser, or serve it locally:
-
-```bash
-python -m http.server 8000
-```
-
-Then visit: `http://localhost:8000`
-
 ## Author
 **Garv Mehra**  
 GitHub: https://github.com/studentGarv  
